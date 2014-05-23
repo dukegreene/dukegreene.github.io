@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="stylesheets/blog_template.css" />
+	<title>Week 2: CSS Positioning Explained</title>
+</head>
+<body>
+	<div id="header">
+		<a href="https://www.facebook.com/dukegreene">Facebook Me</a>
+		<a href="https://www.twitter.com/dukegreene">Tweet Me</a>
+		<a href="https://www.github.com/dukegreene">Git Me</a>
+		<a href="https://dukegreene.wordpress.com">Press Me</a>
+		<a href="https://www.linkedin.com/pub/duke-greene/94/774/4ab">Link With Me</a>
+		<a href="http://punksuhate.bandcamp.com/track/full-circle">Rock With Me</a>
+		<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Roll With Me</a>
+	</div>
+	<div class="left">
+		<img src="http://i.imgur.com/Gn86uKc.jpg" />
+		<h2>Duke's DBC Blog</h2>
+		<p>I'm a guy who writes stuff like songs and rhymes and blog posts. I can sing and juggle (kind of) and my daughter thinks I'm hilarious. When I'm not being a dad or a performer, I handle social media, journalism, purchasing and project management duties for a small communications firm in West Michigan.</p>
+		<p>For me, Dev Bootcamp represents a chance to rewire my thinking. A lifetime fixed-mindset adherent, I'm trying to learn how to love learning, for all its bumps and sharp edges. I'm trying to love failure. And I'm trying to love feedback. Please let me know what I've done well. Or let me know what I screwed up, so I can grow from the experience.</p>
+		<p>This isn't my real blog. At least, not yet. One day I might buy a better domain name and turn this into something more glorious. Until then, I'm letting Wordpress do the grunt work for me, and focusing on the words. I update regularly about Dev Bootcamp stuff and my own learning/thinking process in hopes that someone may relate and take away something meaningful. Click the "Press Me" link in the header to read my other set of words.</p>
+		<br/>
+		<br/>
+		<h3>PREVIOUS POSTS:</h3>
+		<p>[none]</p>
+  </div>
+	<div class="right">
+		<h1 style="margin: auto">"I WANT THE DIV TO GO TO THERE:" Positioning in CSS</h1>
+		<p>Are you always fighting with your page layout? Is it always winning? Do you feel like a frazzled infomercial star, shaking your head at the camera and saying "there's GOT to be a better way"?</p>
+		<p>Yeah, me too. That's why I chose this as my topic. Today, I'd like to talk about the types of positioning in CSS and how they're used. Hopefully, by following along with my examples and playing around with CSS on your own, you'll get a better grasp of positioning. And if I'm lucky, I might learn enough by teaching on this topic to stop saying "uncle" every time my footer disappears behind my blog content.</p>
+		<h3>We're Not Winging It, We're Seeing What Happens</h3>
+		<p>I'm totally concrete random. I learn fastest when I can just dive in and see what stuff does when I mess with it. So for this exercise, I created real files and played around with them to see what would happen when I changed things one at a time. Rather than try to explain each individual concept in writing like I was studying for an exam, I decided to quiz myself during each step of my experimentation and learn how the moving pieces were all connected. So I created two files, positioning.html and positioning.css, and built four boxes, editing their attributes in CSS. I wanted one black bar at the top with a big blue box underneath. In that box I placed two smaller boxes, red and green. Here's my HTML and CSS:</p>
+		<img src="http://i.imgur.com/TTd5kg9.png" />
+		<img src="http://i.imgur.com/sBfGT2Q.png" />
+		<p>And here's what it looked like in the browser:</p>
+		<img src="http://i.imgur.com/waszIVo.png" />
+		<p>Why the heck I would write out "position: static" for each box? It's the default position setting for any page element. When you don't specify a position, you're choosing the static one, which puts the items in the order and flow that they were written in. Since everything is static, the black bar won't go beneath the blue box on the screen because it isn't beneath the blue box in the code. With this positioning, nothing overlaps, scrolling moves everything at once, and child elements never leave the boundaries of their parent elements. (I'll get to the blue box's min-height in a min-ute.)</p>
+		<p>OK, let's play around. My first move was to change the position of my black and green boxes from "static" to "fixed."	Here's what happened:</p>
+		<img src="http://i.imgur.com/omE0a7T.png" />
+		<p>Weird. A lot of things just happened. I'll try to break them down, and if I get any of this wrong, please send me an email and set me straight, because I'm learning here just like you. The "fixed" position basically pulls an element out of the flow and makes the other elements forget it was ever there. And when the pulling happens, it's like the element is getting pulled off the screen towards your face, because now that you've fixed it, it gets a z-axis attribute that prioritizes its placement over the other stuff. The black bar just ninja-leaped out of the flow toward your actual human face, and the blue box and its contents slid upward to fill the space. So now the top part of big blue is obscured by the bar.</p>
+		<p>But why isn't the green box going anywhere? And what just happened to big blue? The answer to the second answers the first: the blue box has a min-height that is smaller than either box inside it. Take away a box, and the height will shrink to accommodate the remaining one. So the green box DID go somewhere, straight up, out of the screen, toward your face. It doesn't slide upward into the corner because it's smart enough to remember where the red box was (ninjas are very smart). If the red box had been fixed instead, the green box would have slid right underneath it and all you'd see was a red box inside a blue box under a black bar. Back to reality, my fixed green box doesn't move just because I fixed it, but it will move if I tell it to. So I will.</p>
+		<img src="http://i.imgur.com/EyPDMUy.png" />
+		<p>Can you guess what I did? In my #green CSS, I added two things - top: 10px and left: 30px, and the result was that the green box was FIXED to a position 10 pixels from the top of the window and 30 from the left. So the ninjas can jump up AND around, but they'll only jump straight up unless you tell them to jump around. (I'm so sorry if this ninja visualization isn't helping you, but I feel like I'm really getting the hang of this concept now, so you're gonna have to deal with it.)</p>
+		<p>Ok, I feel like I understand how "static" and "fixed" work. So I'm going to move on to something else. Let's see what happens when I switch all the boxes to position: relative ...</p>
+		<img src="http://i.imgur.com/snkK2Po.png" />
+		<p>Sweet. Mostly back to normal. Looks like only the green one has moved off its mark. That makes sense because I only gave directions to that box. Remember that it's still set to top: 10px and left: 30px. So now the position value tells the box to travel 10px from the top and 30px from the left of where it would have been by default. That's what "relative" is for. It moves things relative to their starting location. The reference point for the move is the original position of the element.</p>
+		<p>I got impatient here and decided to press on to the next thing. So I changed #green to position: absolute to see what would happen:</p>
+		<img src="http://i.imgur.com/hdihQZh.png" />
+		<p>Ok, this is fun. When the position is set to absolute, two things seem to happen. First, our green friend has gone ninja on us again. Notice that the blue box no longer feels the need to enclose the green box. Looks like absolute is pulling the element out of the flow, just like fixed did above. Second, it's still positioned relative to something, but now the reference is the blue box. That's because big blue is the closest parent with a relative or absolute position (these two like to stick together). An element with position: absolute is placed ABSOLUTELY where you tell it to go, based on the boundary of the smallest element that encloses it. If the blue box had been position: static, the green box would be positioned 10px and 30px from the top and left of the entire window, pulling it out of the blue box. I think of a parent element's absolute or relative status as ninja awareness, which prevents ninjafied elements from leaving the parent's reach when they jump out of the flow.</p>
+		<p>You know me by now. I'm testing this. In CSS, I reset all the positions to static and removed top: 10px / left: 30px from #green. Then I added top: 25px and left: 25px to #blue and set its position to absolute. Here's what I got:</p>
+		<img src="http://i.imgur.com/Nm9Gb6A.png"
+		<p>See how the box is positioned according the boundaries of the entire page? If blue had been relative, it would have moved down and to the right of its original position. Here, it's moved down and to the right of the top and left edges of the page. That's the power of absolute. You can use it to stick things on the edges of your containing element. Watch this.</p>
+		<p>First, I'm setting #red to position:absolute. This will make it react to the boundaries of the blue box, since the blue box is a parent that is also absolute or relative. I'm also changing #blue's position from absolute to relative, which should shift it downward until it is 25px below where it would normally be, RELATIVE to it's regular presence right beneath the black bar. Finally, I'll tell #red to set itself up right: 25px, which should bring it close to the right hand edge of the blue box. Here's the code:</p>
+		<img src="http://i.imgur.com/0opJbBx.png" />
+		<p>And here's how it looked!</p>
+		<img src="http://i.imgur.com/6NnOjY6.png" />
+		<p>Notice how, again, the blue box is shrinking to accommodate the red one's new position instead of holding its old place. That made sense because red became a jumping ninja element when we gave it absolute positioning. Now I feel like I'm getting a little better at predicting what will happen when I change a position setting in CSS. But there's one more thing I'd like to try out. First I'll remove the top and left instructions for #blue and set #red's right: to 0px. That will snap everything in line. I like symmetry.</p>
+		<img src="http://i.imgur.com/84anGmh.png" />
+		<p>Ok, now I want to see how small #blue's min-height really is. How can I do this? Well, my red box is already a ninja. I could pull my green box out of the flow too. Then the blue box would no longer be responsible for holding its children, and it would shrink to its height minimum. I think. I hope.</p>
+		<img src="http://i.imgur.com/sUjIDEU.png" />
+		<p>Fantastic! I just made some sunglasses and learned a bunch about positioning along the way! Like many of life's greatest games, CSS positioning follows a few simple rules that can do really cool things when you put them together. I encourage you to get into a stylesheet and play around on your own. Try to make something and then find a few ways to break it. It can be fun to get your hands dirty, and you'll come away with more knowledge in the long run.</p>
+		<p> Happy coding!</p>
+	</div>
+
+	<div id="footer">
+		<span>This was created and written by Duke Greene in 2014. Thanks for checking it out.</span>
+	</div>
+</body>
+</html>

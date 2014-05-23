@@ -1,0 +1,31 @@
+#black {
+	background-color: black;
+	border: 2px groove;
+	height: 40px;
+	width: 500px;
+	position: static;
+}
+
+#blue {
+	background-color: blue;
+	border: 2px groove;
+	min-height: 40px;
+	width: 500px;
+	position: static;
+}
+
+#red {
+	background-color: red;
+	border: 2px groove;
+	height: 200px;
+	width: 200px;
+	position: static;
+}
+
+#green {
+	background-color: green;
+	border: 2px groove;
+	height: 200px;
+	width: 200px;
+	position: static;
+}

@@ -1,5 +1,5 @@
 html {
-	background-color: #040a25;
+	background-color: #000000;
 }
 
 * {
@@ -50,6 +50,9 @@ span {
 
 #footer {
  clear: both;
+ margin-top: 20px;
+ border-radius: 4px;
+ background-color: #2b2c30;
 }
 
 a:link {
@@ -64,4 +67,9 @@ a:visited {
 a:hover {
 	text-decoration: none;
 	color: #ffffff;
+}
+
+img {
+	width: 80%;
+	margin-left: 8%;
 }
