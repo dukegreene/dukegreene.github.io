@@ -1,0 +1,26 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	max-width: 1000px;
+	border-radius: 1em;
+	border: 0.5em black;
+}
+
+header {
+	max-width: 1000px;
+	height: 200px;
+	background: url(http://i.imgur.com/8iwBfO0.jpg) center no-repeat;
+	font-family: 'Krona One', sans-serif;
+	color: #99ccff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+}
+
+header h1 {
+	position: relative;
+	top: .2em;
+	font-size: 400%;
+	vertical-align: center;
+}
+
