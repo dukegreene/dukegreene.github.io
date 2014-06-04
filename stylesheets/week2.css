@@ -3,24 +3,53 @@ body {
 	max-width: 1000px;
 	border-radius: 1em;
 	border: 0.5em black;
+	background-color: #99ccff;
+}
+
+#links a {
+	display: block;
+	text-align: center;
+	padding: .2em;
 }
 
 header {
+	display: block;
 	max-width: 1000px;
 	height: 200px;
 	background: url(http://i.imgur.com/8iwBfO0.jpg) center no-repeat;
 	font-family: 'Krona One', sans-serif;
 	color: #99ccff;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 }
 
+h3 {
+	padding: -.2em;
+}
+
 header h1 {
+	font-size: 350%;
 	position: relative;
-	top: .2em;
-	font-size: 400%;
-	vertical-align: center;
+	top: 18%;
+}
+
+@media screen and (max-width: 920px) {
+	header h1 {
+		font-size: 300%;
+		position: relative;
+		top: 10%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	header h1 {
+		font-size: 250%;
+		position: relative;
+		top: 10%;
+	}
 }
 
