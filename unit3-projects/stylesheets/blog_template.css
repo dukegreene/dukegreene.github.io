@@ -16,7 +16,7 @@ span {
 	margin: auto;
 	padding: 6px;
 	border-radius: 4px;
-	position: fixed;
+	position: static;
 	background-color: #2b2c30;
 }
 
