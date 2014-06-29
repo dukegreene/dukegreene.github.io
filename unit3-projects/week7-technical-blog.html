@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="stylesheets/blog_template.css" />
-	<title><!--***BLOG TITLE GOES HERE***--></title>
+	<title>Week 7 Technical Blog</title>
 </head>
 <body>
 	<div id="header">
@@ -26,8 +26,20 @@
 		<p>[none]</p>
   </div>
 	<div class="right">
-		<h1 style="margin: auto"><!--***POST TITLE HERE***--></h1>
-		<p><!--***START BLOG CONTENT HERE***--></p>
+		<h1 style="margin: auto">The Artist Has Prepared a Statement...</h1>
+		<p>Imagine a game of Simon Says. It's like any other game of Simon Says, but there's one special rule: at the end of each round, one of the players gets to comment on their performance by saying a few words. The game might play out like this:</p>
+		<p>"Simon says touch your toes." <em>"That was easy!"</em> "Simon says spin around in a circle." <em>"Whoa, now I'm dizzy."</em> "Clap your hands...you're out! Simon didn't say clap your hands." <em>"Shucks."</em></p>
+		<p>But Simon Says is a game based on doing what words say. What if the players used command words in their replies?</p>
+		<p>"Simon says touch your toes." <em>"That was easy!"</em> "Simon says spin around in a circle." <em>"SIMON SAYS..."</em> "Clap your hands...you're out! Simon didn't say clap your hands." <em>"Really? Because it sounds EXACTLY like he did..."</em></p>
+		<p>SQL injection works like this. The "player" is the user, and their input can affect the outcome of any "game" (database query) where it's allowed to be treated the same as the words spoken by Simon (the programmer). Of course, while the consequences of cheating in a game are trivial, the consequences of injecting SQL statements into user input can be devastating. From theft to destruction of data, bad things can happen when SQL is not properly sanitized against injections. When writing code that uses SQL to access databases, there are two rules to follow: 1) Never trust user input, and 2) Always use prepared statements.</p>
+		<p>In Ruby, we can create methods to take arguments we then pass into an SQL query, like this:</p>
+		<img src="http://i.imgur.com/8WvdSgK.png">
+		<p>But this technique is exactly what not to do, because it breaks both of the cardinal rules. By allowing name to be any string, it ignores the chances of a malicious user adding a semicolon and an additional query, or adding a boolean to affect how the database returns the results of the query (for more examples, check out this <a href="http://www.w3schools.com/sql/sql_injection.asp">great resource</a>.) It also lets the code pass right into an SQL query without preparing the query first. We don't want that. So let's fix it up a bit:</p>
+		<img src="http://i.imgur.com/rvRHCPu.png">
+		<p>So what's different here? Well, in the first example, the execution happened on everything at once - the query code and the inserted argument were all processed at the same time. But here, the query statement is prepared separately from the argument, so the program knows the exact scope and intention of the query before it even looks at the string passed in as the argument. This statement preparation (also known as query parameterization) is the most secure way to prevent SQL injection. Notice that the change isn't even that complicated. If there was more than one argument being passed, there would be one question mark for each variable, and the variables passed into the execute statement would have to be written in order, like so:</p>
+		<img src="http://i.imgur.com/RWStn6j.png">
+		<p>"Simon says touch your toes, and whatever you say next can only be treated as a reply and never as the start of a new round." <em>"SIMON SAYS..."</em> "Nice try, but I was prepared for you to try something like that, and it's only going to count as a reply to the last round." <em>"Whoa, you're good at this security stuff."</em> "Simon says you can be too, if you use prepared statements."</p>
+		<p>Since it's not a huge hassle to prevent against SQL injection, and since the consequences of unsterilized SQL can be so dire, there's really no excuse not to use techniques like this to keep your programs nice and secure. Try it out for yourself. Happy coding!</p>
 	</div>
 	<div id="footer">
 		<span>This was created and written by Duke Greene in 2014. Thanks for checking it out.</span>
