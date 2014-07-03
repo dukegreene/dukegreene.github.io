@@ -7,9 +7,10 @@ body {
 }
 
 #links a {
-	display: block;
+	display: inline;
 	text-align: center;
-	padding: .2em;
+	padding: .4em;
+	font-size: 1.3em;
 }
 
 header {
