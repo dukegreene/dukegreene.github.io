@@ -41,9 +41,9 @@ a:hover {
 
 #links {
 	text-align: center;
-	position: relative;
+	position: fixed;
 	float: left;
-	width: 10%;
+	width: 6%;
 }
 
 #links a {
@@ -108,6 +108,13 @@ header h1 {
 		vertical-align: middle;
 	}
 
+	#links {
+		text-align: center;
+		position: fixed;
+		float: left;
+		width: 10%;
+	}
+
 	#blogs a figure {
 		width: 44%;
 		margin: 2%;
@@ -124,6 +131,12 @@ header h1 {
 		vertical-align: middle;
 	}
 
+	#blogs {
+		text-align: center;
+		width: 80%;
+		float: right;
+	}
+
 	#blogs a figure {
 		width: 80%;
 		margin: 2%;
@@ -133,19 +146,17 @@ header h1 {
 	}
 
 	#links {
-		position: static;
-		float: none;
-		display: inline-block;
-		width: 17%;
-	}
+	text-align: center;
+	position: fixed;
+	float: left;
+	width: 17%;
+}
 
 	#links a {
-		float: none;
 		display: inline-block;
 	}
 
 	#links a img{
-		float: none;
 		position:static;
 		width: 80%;
 		display: inline-block;
