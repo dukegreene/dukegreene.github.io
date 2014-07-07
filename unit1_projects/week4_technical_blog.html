@@ -1,46 +1,40 @@
-<!doctype html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="stylesheets/blog_template.css" />
-	<title>Tech Blog: Looping in Ruby</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
+	<link href='http://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:500' rel='stylesheet' type='text/css'>	
+	<link rel="stylesheet" type="text/css" href="stylesheets/blog-template2.css" />
+	<title>Duke Greene is Doing Dev Bootcamp</title>
 </head>
 <body>
-	<div id="header">
-		<a href="https://www.facebook.com/dukegreene">Facebook Me</a>
-		<a href="https://www.twitter.com/dukegreene">Tweet Me</a>
-		<a href="https://www.github.com/dukegreene">Git Me</a>
-		<a href="https://dukegreene.wordpress.com">Press Me</a>
-		<a href="https://www.linkedin.com/pub/duke-greene/94/774/4ab">Link With Me</a>
-		<a href="http://punksuhate.bandcamp.com/track/full-circle">Rock With Me</a>
-		<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Roll With Me</a>
+	<div id="wrapper" class="clearfix">
+		<a href="http://dukegreene.github.io"><header>
+			<h1>DUKE GREENE IS BLOGGING DEV BOOTCAMP</h1>
+		</header></a>
 	</div>
-	<div class="left">
-		<img src="http://i.imgur.com/Gn86uKc.jpg" />
-		<h2>Duke's DBC Blog</h2>
-		<p>I'm a guy who writes stuff like songs and rhymes and blog posts. I can sing and juggle (kind of) and my daughter thinks I'm hilarious. When I'm not being a dad or a performer, I handle social media, journalism, purchasing and project management duties for a small communications firm in West Michigan.</p>
-		<p>For me, Dev Bootcamp represents a chance to rewire my thinking. A lifetime fixed-mindset adherent, I'm trying to learn how to love learning, for all its bumps and sharp edges. I'm trying to love failure. And I'm trying to love feedback. Please let me know what I've done well. Or let me know what I screwed up, so I can grow from the experience.</p>
-		<p>This isn't my real blog. At least, not yet. One day I might buy a better domain name and turn this into something more glorious. Until then, I'm letting Wordpress do the grunt work for me, and focusing on the words. I update regularly about Dev Bootcamp stuff and my own learning/thinking process in hopes that someone may relate and take away something meaningful. Click the "Press Me" link in the header to read my other set of words.</p>
-		<br/>
-		<br/>
-		<h3>PREVIOUS POSTS:</h3>
-		<p>[none]</p>
-  </div>
-	<div class="right">
-		<h1 style="margin: auto">Looping in Ruby</h1>
-		<p>Computers are dumb, but they're diligent. It's why I love them. Sure, I might have to be really precise when I give an instruction, but if I need that thing done 3000 times in a row, I'll be glad I told the computer exactly how. When I tell a computer to do something over and over, I'm working with loops. Ruby has several ways to loop, and each one is a little different. Let's discuss a few.</p>
-		<p>First, we have the condition-dependent while and until loops. While sets a condition and runs the loop as long as the condition is true. Until sets a condition and runs as long as that condition is false (i.e. *until* it is true, which is when the loop stops. While and until work well in situations where you don't want to move on without making sure a certaing thing gets done. You could run a game's turns through a while loop that ran as long as no player had won yet. Here's how we'd use while and until to count to ten:</p>
-		<img src="http://i.imgur.com/TSGxe8p.png" />
-		<img src="http://i.imgur.com/9fspCBA.png"
-		<p>The times loop is considerably less nuanced: It simply runs a block as many times as specified. You can run this loop with a number or by inserting a variable that corresponds to a number. This could be useful if you need to get something done a number of times, but that number depended on the result of another variable or calculation. Here's one way we could count to ten with times:</p>
-		<img src="http://i.imgur.com/8YKD8m0.png" />
-		<p>With the each loop, we get a little more versatility. Each can iterate across an array or hash and do the same thing to each item in it. Each loops as many times as there are items in the object being acted upon. When starting an each loop, you assign a variable name to stand in for each item worked with. This is great for sorting or reorganizing data. To illustrate, let's count to ten again:</p>
-		<img src="http://i.imgur.com/0X39e7x.png" />
-		<p>Lastly, let's look at the for loop. For sets a range and then executes the loop for each item in that range. It's very straightforward and able to call on variables like the other loops. This might be good for running through data once of reach of a set of years, like (1985..2014). Let's see it in action for (1..10):</p>
-		<img src="http://i.imgur.com/CQEYlc2.png" />
-		<p>Just like with anything else in Ruby, the best way to get your mind around loops is to play with them in IRB and see what they can and can't do. Just remember that it is totally possible to write loops that never end (like a while loop with a condition that will neer be false), and you should press Ctrl - C if you get stuck in one of those to interrupt the program. Good luck, and happy coding!</p>
-	</div>
-	<div id="footer">
-		<span>This was created and written by Duke Greene in 2014. Thanks for checking it out.</span>
+	<div id="wrapper" class="clearfix">
+		<section id="links">
+			<a href="https://www.facebook.com/dukegreene"><img src="images/facebook.gif" /></a>
+			<a href="https://www.twitter.com/dukegreene"><img src="images/twitter-circle-black-512.png" style="width: 76%"/></a>
+			<a href="https://www.github.com/dukegreene"><img src="images/github.gif" /></a>
+			<a href="https://dukegreene.wordpress.com"><img src="images/wp-icon.png" /></a>
+			<a href="https://www.linkedin.com/pub/duke-greene/94/774/4ab"><img src="images/linkedin-Icon-BW.png" /></a>
+			<a href="http://punksuhate.bandcamp.com/track/full-circle"><img src="images/playicon.gif" /></a>
+		</section>
+		<section id="blogs">
+			<h1 style="margin: auto">Looping in Ruby</h1><br/>
+			<p>Computers are dumb, but they're diligent. It's why I love them. Sure, I might have to be really precise when I give an instruction, but if I need that thing done 3000 times in a row, I'll be glad I told the computer exactly how. When I tell a computer to do something over and over, I'm working with loops. Ruby has several ways to loop, and each one is a little different. Let's discuss a few.</p><br>
+			<p>First, we have the condition-dependent while and until loops. While sets a condition and runs the loop as long as the condition is true. Until sets a condition and runs as long as that condition is false (i.e. *until* it is true, which is when the loop stops. While and until work well in situations where you don't want to move on without making sure a certaing thing gets done. You could run a game's turns through a while loop that ran as long as no player had won yet. Here's how we'd use while and until to count to ten:</p><br>
+			<img src="http://i.imgur.com/TSGxe8p.png" /><br><br>
+			<img src="http://i.imgur.com/9fspCBA.png" /><br><br>
+			<p>The times loop is considerably less nuanced: It simply runs a block as many times as specified. You can run this loop with a number or by inserting a variable that corresponds to a number. This could be useful if you need to get something done a number of times, but that number depended on the result of another variable or calculation. Here's one way we could count to ten with times:</p><br>
+			<img src="http://i.imgur.com/8YKD8m0.png" /><br><br>
+			<p>With the each loop, we get a little more versatility. Each can iterate across an array or hash and do the same thing to each item in it. Each loops as many times as there are items in the object being acted upon. When starting an each loop, you assign a variable name to stand in for each item worked with. This is great for sorting or reorganizing data. To illustrate, let's count to ten again:</p><br>
+			<img src="http://i.imgur.com/0X39e7x.png" /><br><br>
+			<p>Lastly, let's look at the for loop. For sets a range and then executes the loop for each item in that range. It's very straightforward and able to call on variables like the other loops. This might be good for running through data once of reach of a set of years, like (1985..2014). Let's see it in action for (1..10):</p><br>
+			<img src="http://i.imgur.com/CQEYlc2.png" /><br><br>
+			<p>Just like with anything else in Ruby, the best way to get your mind around loops is to play with them in IRB and see what they can and can't do. Just remember that it is totally possible to write loops that never end (like a while loop with a condition that will neer be false), and you should press Ctrl - C if you get stuck in one of those to interrupt the program. Good luck, and happy coding!</p>
+		</section>
 	</div>
 </body>
 </html>

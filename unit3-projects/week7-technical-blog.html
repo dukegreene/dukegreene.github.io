@@ -1,48 +1,42 @@
-<!doctype html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="stylesheets/blog_template.css" />
-	<title>Tech Blog: The Artist Has Prepared a Statement...</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
+	<link href='http://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:500' rel='stylesheet' type='text/css'>	
+	<link rel="stylesheet" type="text/css" href="stylesheets/blog-template2.css" />
+	<title>Duke Greene is Doing Dev Bootcamp</title>
 </head>
 <body>
-	<div id="header">
-		<a href="https://www.facebook.com/dukegreene">Facebook Me</a>
-		<a href="https://www.twitter.com/dukegreene">Tweet Me</a>
-		<a href="https://www.github.com/dukegreene">Git Me</a>
-		<a href="https://dukegreene.wordpress.com">Press Me</a>
-		<a href="https://www.linkedin.com/pub/duke-greene/94/774/4ab">Link With Me</a>
-		<a href="http://punksuhate.bandcamp.com/track/full-circle">Rock With Me</a>
-		<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Roll With Me</a>
+	<div id="wrapper" class="clearfix">
+		<a href="http://dukegreene.github.io"><header>
+			<h1>DUKE GREENE IS BLOGGING DEV BOOTCAMP</h1>
+		</header></a>
 	</div>
-	<div class="left">
-		<img src="http://i.imgur.com/Gn86uKc.jpg" />
-		<h2>Duke's DBC Blog</h2>
-		<p>I'm a guy who writes stuff like songs and rhymes and blog posts. I can sing and juggle (kind of) and my daughter thinks I'm hilarious. When I'm not being a dad or a performer, I handle social media, journalism, purchasing and project management duties for a small communications firm in West Michigan.</p>
-		<p>For me, Dev Bootcamp represents a chance to rewire my thinking. A lifetime fixed-mindset adherent, I'm trying to learn how to love learning, for all its bumps and sharp edges. I'm trying to love failure. And I'm trying to love feedback. Please let me know what I've done well. Or let me know what I screwed up, so I can grow from the experience.</p>
-		<p>This isn't my real blog. At least, not yet. One day I might buy a better domain name and turn this into something more glorious. Until then, I'm letting Wordpress do the grunt work for me, and focusing on the words. I update regularly about Dev Bootcamp stuff and my own learning/thinking process in hopes that someone may relate and take away something meaningful. Click the "Press Me" link in the header to read my other set of words.</p>
-		<br/>
-		<br/>
-		<h3>PREVIOUS POSTS:</h3>
-		<p>[none]</p>
-  </div>
-	<div class="right">
-		<h1 style="margin: auto">The Artist Has Prepared a Statement...</h1>
-		<p>Imagine a game of Simon Says. It's like any other game of Simon Says, but there's one special rule: at the end of each round, one of the players gets to comment on their performance by saying a few words. The game might play out like this:</p>
-		<p>"Simon says touch your toes." <em>"That was easy!"</em> "Simon says spin around in a circle." <em>"Whoa, now I'm dizzy."</em> "Clap your hands...you're out! Simon didn't say clap your hands." <em>"Shucks."</em></p>
-		<p>But Simon Says is a game based on doing what words say. What if the players used command words in their replies?</p>
-		<p>"Simon says touch your toes." <em>"That was easy!"</em> "Simon says spin around in a circle." <em>"SIMON SAYS..."</em> "Clap your hands...you're out! Simon didn't say clap your hands." <em>"Really? Because it sounds EXACTLY like he did..."</em></p>
-		<p>SQL injection works like this. The "player" is the user, and their input can affect the outcome of any "game" (database query) where it's allowed to be treated the same as the words spoken by Simon (the programmer). Of course, while the consequences of cheating in a game are trivial, the consequences of injecting SQL statements into user input can be devastating. From theft to destruction of data, bad things can happen when SQL is not properly sanitized against injections. When writing code that uses SQL to access databases, there are two rules to follow: 1) Never trust user input, and 2) Always use prepared statements.</p>
-		<p>In Ruby, we can create methods to take arguments we then pass into an SQL query, like this:</p>
-		<img src="http://i.imgur.com/8WvdSgK.png">
-		<p>But this technique is exactly what not to do, because it breaks both of the cardinal rules. By allowing name to be any string, it ignores the chances of a malicious user adding a semicolon and an additional query, or adding a boolean to affect how the database returns the results of the query (for more examples, check out this <a href="http://www.w3schools.com/sql/sql_injection.asp">great resource</a>.) It also lets the code pass right into an SQL query without preparing the query first. We don't want that. So let's fix it up a bit:</p>
-		<img src="http://i.imgur.com/rvRHCPu.png">
-		<p>So what's different here? Well, in the first example, the execution happened on everything at once - the query code and the inserted argument were all processed at the same time. But here, the query statement is prepared separately from the argument, so the program knows the exact scope and intention of the query before it even looks at the string passed in as the argument. This statement preparation (also known as query parameterization) is the most secure way to prevent SQL injection. Notice that the change isn't even that complicated. If there was more than one argument being passed, there would be one question mark for each variable, and the variables passed into the execute statement would have to be written in order, like so:</p>
-		<img src="http://i.imgur.com/RWStn6j.png">
-		<p>"Simon says touch your toes, and whatever you say next can only be treated as a reply and never as the start of a new round." <em>"SIMON SAYS..."</em> "Nice try, but I was prepared for you to try something like that, and it's only going to count as a reply to the last round." <em>"Whoa, you're good at this security stuff."</em> "Simon says you can be too, if you use prepared statements."</p>
-		<p>Since it's not a huge hassle to prevent against SQL injection, and since the consequences of unsterilized SQL can be so dire, there's really no excuse not to use techniques like this to keep your programs nice and secure. Try it out for yourself. Happy coding!</p>
-	</div>
-	<div id="footer">
-		<span>This was created and written by Duke Greene in 2014. Thanks for checking it out.</span>
+	<div id="wrapper" class="clearfix">
+		<section id="links">
+			<a href="https://www.facebook.com/dukegreene"><img src="images/facebook.gif" /></a>
+			<a href="https://www.twitter.com/dukegreene"><img src="images/twitter-circle-black-512.png" style="width: 76%"/></a>
+			<a href="https://www.github.com/dukegreene"><img src="images/github.gif" /></a>
+			<a href="https://dukegreene.wordpress.com"><img src="images/wp-icon.png" /></a>
+			<a href="https://www.linkedin.com/pub/duke-greene/94/774/4ab"><img src="images/linkedin-Icon-BW.png" /></a>
+			<a href="http://punksuhate.bandcamp.com/track/full-circle"><img src="images/playicon.gif" /></a>
+		</section>
+		<section id="blogs">
+			<h1 style="margin: auto">The Artist Has Prepared a Statement...</h1><br>
+			<p>Imagine a game of Simon Says. It's like any other game of Simon Says, but there's one special rule: at the end of each round, one of the players gets to comment on their performance by saying a few words. The game might play out like this:</p><br>
+			<p>"Simon says touch your toes." <em>"That was easy!"</em> "Simon says spin around in a circle." <em>"Whoa, now I'm dizzy."</em> "Clap your hands...you're out! Simon didn't say clap your hands." <em>"Shucks."</em></p><br>
+			<p>But Simon Says is a game based on doing what words say. What if the players used command words in their replies?</p><br>
+			<p>"Simon says touch your toes." <em>"That was easy!"</em> "Simon says spin around in a circle." <em>"SIMON SAYS..."</em> "Clap your hands...you're out! Simon didn't say clap your hands." <em>"Really? Because it sounds EXACTLY like he did..."</em></p><br>
+			<p>SQL injection works like this. The "player" is the user, and their input can affect the outcome of any "game" (database query) where it's allowed to be treated the same as the words spoken by Simon (the programmer). Of course, while the consequences of cheating in a game are trivial, the consequences of injecting SQL statements into user input can be devastating. From theft to destruction of data, bad things can happen when SQL is not properly sanitized against injections. When writing code that uses SQL to access databases, there are two rules to follow: 1) Never trust user input, and 2) Always use prepared statements.</p><br>
+			<p>In Ruby, we can create methods to take arguments we then pass into an SQL query, like this:</p><br>
+			<img src="http://i.imgur.com/8WvdSgK.png"><br><br>
+			<p>But this technique is exactly what not to do, because it breaks both of the cardinal rules. By allowing name to be any string, it ignores the chances of a malicious user adding a semicolon and an additional query, or adding a boolean to affect how the database returns the results of the query (for more examples, check out this <a href="http://www.w3schools.com/sql/sql_injection.asp">great resource</a>.) It also lets the code pass right into an SQL query without preparing the query first. We don't want that. So let's fix it up a bit:</p><br>
+			<img src="http://i.imgur.com/rvRHCPu.png"><br><br>
+			<p>So what's different here? Well, in the first example, the execution happened on everything at once - the query code and the inserted argument were all processed at the same time. But here, the query statement is prepared separately from the argument, so the program knows the exact scope and intention of the query before it even looks at the string passed in as the argument. This statement preparation (also known as query parameterization) is the most secure way to prevent SQL injection. Notice that the change isn't even that complicated. If there was more than one argument being passed, there would be one question mark for each variable, and the variables passed into the execute statement would have to be written in order, like so:</p><br>
+			<img src="http://i.imgur.com/RWStn6j.png"><br><br>
+			<p>"Simon says touch your toes, and whatever you say next can only be treated as a reply and never as the start of a new round." <em>"SIMON SAYS..."</em> "Nice try, but I was prepared for you to try something like that, and it's only going to count as a reply to the last round." <em>"Whoa, you're good at this security stuff."</em> "Simon says you can be too, if you use prepared statements."</p><br>
+			<p>Since it's not a huge hassle to prevent against SQL injection, and since the consequences of unsterilized SQL can be so dire, there's really no excuse not to use techniques like this to keep your programs nice and secure. Try it out for yourself. Happy coding!</p>
+		</section>
 	</div>
 </body>
 </html>

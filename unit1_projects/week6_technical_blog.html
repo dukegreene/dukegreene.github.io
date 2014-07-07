@@ -1,47 +1,41 @@
-<!doctype html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="stylesheets/blog_template.css" />
-	<title>Tech Blog: Inheritance and Composition</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
+	<link href='http://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:500' rel='stylesheet' type='text/css'>	
+	<link rel="stylesheet" type="text/css" href="stylesheets/blog-template2.css" />
+	<title>Duke Greene is Doing Dev Bootcamp</title>
 </head>
 <body>
-	<div id="header">
-		<a href="https://www.facebook.com/dukegreene">Facebook Me</a>
-		<a href="https://www.twitter.com/dukegreene">Tweet Me</a>
-		<a href="https://www.github.com/dukegreene">Git Me</a>
-		<a href="https://dukegreene.wordpress.com">Press Me</a>
-		<a href="https://www.linkedin.com/pub/duke-greene/94/774/4ab">Link With Me</a>
-		<a href="http://punksuhate.bandcamp.com/track/full-circle">Rock With Me</a>
-		<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Roll With Me</a>
+	<div id="wrapper" class="clearfix">
+		<a href="http://dukegreene.github.io"><header>
+			<h1>DUKE GREENE IS BLOGGING DEV BOOTCAMP</h1>
+		</header></a>
 	</div>
-	<div class="left">
-		<img src="http://i.imgur.com/Gn86uKc.jpg" />
-		<h2>Duke's DBC Blog</h2>
-		<p>I'm a guy who writes stuff like songs and rhymes and blog posts. I can sing and juggle (kind of) and my daughter thinks I'm hilarious. When I'm not being a dad or a performer, I handle social media, journalism, purchasing and project management duties for a small communications firm in West Michigan.</p>
-		<p>For me, Dev Bootcamp represents a chance to rewire my thinking. A lifetime fixed-mindset adherent, I'm trying to learn how to love learning, for all its bumps and sharp edges. I'm trying to love failure. And I'm trying to love feedback. Please let me know what I've done well. Or let me know what I screwed up, so I can grow from the experience.</p>
-		<p>This isn't my real blog. At least, not yet. One day I might buy a better domain name and turn this into something more glorious. Until then, I'm letting Wordpress do the grunt work for me, and focusing on the words. I update regularly about Dev Bootcamp stuff and my own learning/thinking process in hopes that someone may relate and take away something meaningful. Click the "Press Me" link in the header to read my other set of words.</p>
-		<br/>
-		<br/>
-		<h3>PREVIOUS POSTS:</h3>
-		<p>[none]</p>
-  </div>
-	<div class="right">
-		<h1 style="margin: auto">Inheritance and Composition</h1>
-		<p>Programmers are always trying to stay DRY. If there was a programming Bible, "Don't Repeat Yourself" would be one of the first commandments. To avoid repetitive code when writing classes, programmers can use one of two main techniques, inheritance and composition. The first technique uses '<' to pass along attributes from a Parent class to a Child class, and the second avoids inheritance entirely by using other classes and modules right in the code. Let's take a brief look at each strategy.</p>
-		<p>With inheritance, a parent class "stands in" for an inheriting child class when a method is called, unless the child class also contains that method. The inheritance happens when the class is first defined. When the code is run, it executes any method that is called for by the child class and defined only in the parent class as if the parent were the one executing it. But if a method has the exact same name in both the parent and the child classes, the child class's method will be the one executed.</p>
-		<p>There is one exception to this process, and it's called super. Using super within a child method basically yields to the code in the parent method. By inserting super into a child's method, you can carry out both parent and child actions in one call. To illustrate all these concepts at once, here are a pair of classes that talk to each other using inheritance:</p>
-		<img src="http://i.imgur.com/V3zEYpZ.png" />
-		<p>What will happen when this code is run? For the hamburgers method, the parent instance will puts the "loves hamburgers" statement, and the child instance will puts the "REALLY loves hamburgers" statement. (The parent calls are straightforward, so I'll focus on the child calls from here on out.) Since the child already has a defined hamburgers method of its own, it will not try to inherit the parent statement. For kid.soy_milk, the child DOES inherit the parent statement because there is no soy_milk method defined within the Child class. Child looks for #soy_milk locally, finds nothing, and then goes back to "class Child < Parent" to get instructions for where to look next.</p>
-		<p>Super forces that search mid-method when I call kid.napkins. First, the "child wonders" statement is printed per the method's instructions. Then super tells the program to go back to the inherited class, find the matching method name, and execute the code in that method, which generates the "parent always uses" line. Lastly, we return to the kid.napkins call and complete that code, putsing the "child decides" line. As written, all the code will return the following outputs:</p>
-		<img src="http://i.imgur.com/AvKyUNj.png" />
-		<p>And that's inheritance in a nutshell. It's a great way to eliminate repetition, but there's a huge caveat. With inheritance, we're basically saying every Child "is a" type of Parent. This is different from saying a Child "has a" bunch of attributes in common with their parent. The former is a much narrower type of relationship, and it's easier to mess up in big programming projects where objects and features are constantly being tweaked and redefined. If you change something about the Parent and forget to account for it in the Child, you can run into a lot of problems. For flexibility and ease of mind, many programmers prefer to dodge the "is-a" inheritance problems by using composition to create "has-a" type relationships instead. Here's the composition-style way to express the code we just examined, and the result that gets returned:</p>
-		<img src="http://i.imgur.com/OgkO7rR.png" />
-		<img src="http://i.imgur.com/uOZI6ir.png" />
-		<p>It's very similar, only here we have stored the relevant method calls inside of an instance variable created when we initialized Child. Now, the kid instance still HAS traits that it shares with Parent, but it IS entirely its own thing. (That's why it needs its own soy_milk definition now.) So far in DBC work, we've been steering clear of inheritance and sticking with composition. The syntax might look slightly more complex at the outset, but the result is code that is harder to break as projects grow more complex. It's possible to use modules instead of classes, which would remove the need for an initialize statement and substitute all the instance variables with calls to the module itself. Depending on whether you need the Parent methods to act within the context of a standalone object, you might find it easier to go with a class setup. Whichever route you choose, rest assured that composition usually means more versatility and durability compared to inheritance, which sacrifices those traits for total simplicity.</p>
-		<p>Hopefully, this casts some light on the issue of inheritance vs. composition. Thanks for reading, and happy coding!</p>
-	</div>
-	<div id="footer">
-		<span>This was created and written by Duke Greene in 2014. Thanks for checking it out.</span>
+	<div id="wrapper" class="clearfix">
+		<section id="links">
+			<a href="https://www.facebook.com/dukegreene"><img src="images/facebook.gif" /></a>
+			<a href="https://www.twitter.com/dukegreene"><img src="images/twitter-circle-black-512.png" style="width: 76%"/></a>
+			<a href="https://www.github.com/dukegreene"><img src="images/github.gif" /></a>
+			<a href="https://dukegreene.wordpress.com"><img src="images/wp-icon.png" /></a>
+			<a href="https://www.linkedin.com/pub/duke-greene/94/774/4ab"><img src="images/linkedin-Icon-BW.png" /></a>
+			<a href="http://punksuhate.bandcamp.com/track/full-circle"><img src="images/playicon.gif" /></a>
+		</section>
+		<section id="blogs">
+			<h1 style="margin: auto">Inheritance and Composition</h1><br/>
+			<p>Programmers are always trying to stay DRY. If there was a programming Bible, "Don't Repeat Yourself" would be one of the first commandments. To avoid repetitive code when writing classes, programmers can use one of two main techniques, inheritance and composition. The first technique uses '<' to pass along attributes from a Parent class to a Child class, and the second avoids inheritance entirely by using other classes and modules right in the code. Let's take a brief look at each strategy.</p><br>
+			<p>With inheritance, a parent class "stands in" for an inheriting child class when a method is called, unless the child class also contains that method. The inheritance happens when the class is first defined. When the code is run, it executes any method that is called for by the child class and defined only in the parent class as if the parent were the one executing it. But if a method has the exact same name in both the parent and the child classes, the child class's method will be the one executed.</p><br>
+			<p>There is one exception to this process, and it's called super. Using super within a child method basically yields to the code in the parent method. By inserting super into a child's method, you can carry out both parent and child actions in one call. To illustrate all these concepts at once, here are a pair of classes that talk to each other using inheritance:</p><br>
+			<img src="http://i.imgur.com/V3zEYpZ.png" /><br><br>
+			<p>What will happen when this code is run? For the hamburgers method, the parent instance will puts the "loves hamburgers" statement, and the child instance will puts the "REALLY loves hamburgers" statement. (The parent calls are straightforward, so I'll focus on the child calls from here on out.) Since the child already has a defined hamburgers method of its own, it will not try to inherit the parent statement. For kid.soy_milk, the child DOES inherit the parent statement because there is no soy_milk method defined within the Child class. Child looks for #soy_milk locally, finds nothing, and then goes back to "class Child < Parent" to get instructions for where to look next.</p><br>
+			<p>Super forces that search mid-method when I call kid.napkins. First, the "child wonders" statement is printed per the method's instructions. Then super tells the program to go back to the inherited class, find the matching method name, and execute the code in that method, which generates the "parent always uses" line. Lastly, we return to the kid.napkins call and complete that code, putsing the "child decides" line. As written, all the code will return the following outputs:</p><br>
+			<img src="http://i.imgur.com/AvKyUNj.png" /><br><br>
+			<p>And that's inheritance in a nutshell. It's a great way to eliminate repetition, but there's a huge caveat. With inheritance, we're basically saying every Child "is a" type of Parent. This is different from saying a Child "has a" bunch of attributes in common with their parent. The former is a much narrower type of relationship, and it's easier to mess up in big programming projects where objects and features are constantly being tweaked and redefined. If you change something about the Parent and forget to account for it in the Child, you can run into a lot of problems. For flexibility and ease of mind, many programmers prefer to dodge the "is-a" inheritance problems by using composition to create "has-a" type relationships instead. Here's the composition-style way to express the code we just examined, and the result that gets returned:</p><br>
+			<img src="http://i.imgur.com/OgkO7rR.png" /><br><br>
+			<img src="http://i.imgur.com/uOZI6ir.png" /><br><br>
+			<p>It's very similar, only here we have stored the relevant method calls inside of an instance variable created when we initialized Child. Now, the kid instance still HAS traits that it shares with Parent, but it IS entirely its own thing. (That's why it needs its own soy_milk definition now.) So far in DBC work, we've been steering clear of inheritance and sticking with composition. The syntax might look slightly more complex at the outset, but the result is code that is harder to break as projects grow more complex. It's possible to use modules instead of classes, which would remove the need for an initialize statement and substitute all the instance variables with calls to the module itself. Depending on whether you need the Parent methods to act within the context of a standalone object, you might find it easier to go with a class setup. Whichever route you choose, rest assured that composition usually means more versatility and durability compared to inheritance, which sacrifices those traits for total simplicity.</p><br>
+			<p>Hopefully, this casts some light on the issue of inheritance vs. composition. Thanks for reading, and happy coding!</p>
+		</section>
 	</div>
 </body>
 </html>

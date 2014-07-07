@@ -1,51 +1,45 @@
-<!doctype html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="stylesheets/blog_template.css" />
-	<title>Tech Blog: Staying Classy - Initializing with Instance Variables</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
+	<link href='http://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:500' rel='stylesheet' type='text/css'>	
+	<link rel="stylesheet" type="text/css" href="stylesheets/blog-template2.css" />
+	<title>Duke Greene is Doing Dev Bootcamp</title>
 </head>
 <body>
-	<div id="header">
-		<a href="https://www.facebook.com/dukegreene">Facebook Me</a>
-		<a href="https://www.twitter.com/dukegreene">Tweet Me</a>
-		<a href="https://www.github.com/dukegreene">Git Me</a>
-		<a href="https://dukegreene.wordpress.com">Press Me</a>
-		<a href="https://www.linkedin.com/pub/duke-greene/94/774/4ab">Link With Me</a>
-		<a href="http://punksuhate.bandcamp.com/track/full-circle">Rock With Me</a>
-		<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Roll With Me</a>
+	<div id="wrapper" class="clearfix">
+		<a href="http://dukegreene.github.io"><header>
+			<h1>DUKE GREENE IS BLOGGING DEV BOOTCAMP</h1>
+		</header></a>
 	</div>
-	<div class="left">
-		<img src="http://i.imgur.com/Gn86uKc.jpg" />
-		<h2>Duke's DBC Blog</h2>
-		<p>I'm a guy who writes stuff like songs and rhymes and blog posts. I can sing and juggle (kind of) and my daughter thinks I'm hilarious. When I'm not being a dad or a performer, I handle social media, journalism, purchasing and project management duties for a small communications firm in West Michigan.</p>
-		<p>For me, Dev Bootcamp represents a chance to rewire my thinking. A lifetime fixed-mindset adherent, I'm trying to learn how to love learning, for all its bumps and sharp edges. I'm trying to love failure. And I'm trying to love feedback. Please let me know what I've done well. Or let me know what I screwed up, so I can grow from the experience.</p>
-		<p>This isn't my real blog. At least, not yet. One day I might buy a better domain name and turn this into something more glorious. Until then, I'm letting Wordpress do the grunt work for me, and focusing on the words. I update regularly about Dev Bootcamp stuff and my own learning/thinking process in hopes that someone may relate and take away something meaningful. Click the "Press Me" link in the header to read my other set of words.</p>
-		<br/>
-		<br/>
-		<h3>PREVIOUS POSTS:</h3>
-		<p>[none]</p>
-  </div>
-	<div class="right">
-		<h1 style="margin: auto">Staying Classy - Initializing with Instance Variables</h1>
-		<p>Ruby classes allow programmers to create all sorts of different kinds of objects. By creating class-specific methods and passing shared variables between them, it's possible to pass a couple arguments to a new instance of a class and do almost anything with them. But to keep track of how those arguments are stored, it's necessary to use something called instance variables.</p>
-		<p>Until I started working with classes, I had only been exposed to local variables. Local variables have the smallest scope of any variable type in Ruby. Scope describes what parts of a program can access a variable. With a local variable, the scope is very small; the variable only works within the construct where it's defined. Here's an example of how we can define a local variable in a loop, but the variable doesn't exist outside the loop.</p>
-		<img src="http://i.imgur.com/lp2OnOy.png" />
-		<p>The last line of the code will return "undefined local variable or method `x' for main:Object" because we did not define x outside the loop. If we had defined x, the value returned would have nothing to do with the loop's x variable. It's possible to create different local variables with the same name in a prograhttp://i.imgur.com/lp2OnOy.pngm, and have them work independently of one another. Maybe not the best practice in terms of readability and bug-proofing, but possible nonetheless.</p>
-		<p>There are also global variables, which start with a "$" and can be manipulated in any scope, whether it's a class, loop, block, method, or something else. Working with global variables can be very dangerous because one area of a program may alter a variable and pass it to another area that was counting on that variable starting with a set default value. Things can get dicey pretty quickly there.</p>
-		<p>When I'm building a class, I'm usually not interested in starting with variables that are globally big or locally small. I want the sweet spot, something that I can work with anywhere in the class (be that in general, in a method, or in a block or loop contained within that method) without being able to affect it when I'm not working within that class. To work with an object like this, I can initialize the class with instance variables. Allow me to illustrate by making a class whose instances represent different sandwiches:</p>
-		<img src="http://i.imgur.com/ugCWm4B.png" />
-		<p>This looks a little redundant at first, but what just happened is absolutely crucial to Sandwich working as a functional class later on. In the initialize method, we define the arguments that the class can take. We want each Sandwich to have meat, cheese and bread values stored. But what good is storing them if we can't use them? By using the @ symbol in front of a variable, we create an instance variable that can be accessed from anywhere within a given sandwich. (They're called instance variables because each given sandwich is an <em>instance</em> of the Sandwich class.)</p>
-		<p>Since @meat, @cheese, and @bread can be accessed from anywhere within Sandwich, we can now create some more methods that use our instance variables:</p>
-		<img src="http://i.imgur.com/mmDL63e.png" />
-		<p>Now we can see the magic of instance variables in action. Notice how the instance variables can show up in any method to be accessed and modified. This allows us to take the initial arguments, modify them with specific instructions, and return the results:</p>
-		<img src="http://i.imgur.com/RmXP0D7.png" />
-		<p>We can do all of this without having to redefine @meat, @cheese, or @bread within each method. We did that at initialization and we don't need to do it again. It's that simple! One last warning, though: It's possible to set instance variables outside of a class, but they have nothing to do with the instance variables within the class. They don't speak to each other. Check out an example:</p>
-		<img src="http://i.imgur.com/lXMjDZ0.png" />
-		<img src="http://i.imgur.com/JBef6FS.png" />
-		<p>So it's still important to keep track of your variable usage and name things appropriately. Whatever the scope of the variable you use, there is a way to screw something up. To avoid this, comment your code as you go along, and don't use the wrong type of variable for a situation. (I had no business creating @bread outside of a class just now!) By building classes with instance variables, you can unleash all their power and create some truly functional code. Take a stab at it for yourself. Good luck, and happy coding!</p>
-	</div>
-	<div id="footer">
-		<span>This was created and written by Duke Greene in 2014. Thanks for checking it out.</span>
+	<div id="wrapper" class="clearfix">
+		<section id="links">
+			<a href="https://www.facebook.com/dukegreene"><img src="images/facebook.gif" /></a>
+			<a href="https://www.twitter.com/dukegreene"><img src="images/twitter-circle-black-512.png" style="width: 76%"/></a>
+			<a href="https://www.github.com/dukegreene"><img src="images/github.gif" /></a>
+			<a href="https://dukegreene.wordpress.com"><img src="images/wp-icon.png" /></a>
+			<a href="https://www.linkedin.com/pub/duke-greene/94/774/4ab"><img src="images/linkedin-Icon-BW.png" /></a>
+			<a href="http://punksuhate.bandcamp.com/track/full-circle"><img src="images/playicon.gif" /></a>
+		</section>
+		<section id="blogs">
+			<h1 style="margin: auto">Staying Classy - Initializing with Instance Variables</h1><br/>
+			<p>Ruby classes allow programmers to create all sorts of different kinds of objects. By creating class-specific methods and passing shared variables between them, it's possible to pass a couple arguments to a new instance of a class and do almost anything with them. But to keep track of how those arguments are stored, it's necessary to use something called instance variables.</p><br>
+			<p>Until I started working with classes, I had only been exposed to local variables. Local variables have the smallest scope of any variable type in Ruby. Scope describes what parts of a program can access a variable. With a local variable, the scope is very small; the variable only works within the construct where it's defined. Here's an example of how we can define a local variable in a loop, but the variable doesn't exist outside the loop.</p><br>
+			<img src="http://i.imgur.com/lp2OnOy.png" /><br><br>
+			<p>The last line of the code will return "undefined local variable or method `x' for main:Object" because we did not define x outside the loop. If we had defined x, the value returned would have nothing to do with the loop's x variable. It's possible to create different local variables with the same name in a prograhttp://i.imgur.com/lp2OnOy.pngm, and have them work independently of one another. Maybe not the best practice in terms of readability and bug-proofing, but possible nonetheless.</p><br>
+			<p>There are also global variables, which start with a "$" and can be manipulated in any scope, whether it's a class, loop, block, method, or something else. Working with global variables can be very dangerous because one area of a program may alter a variable and pass it to another area that was counting on that variable starting with a set default value. Things can get dicey pretty quickly there.</p><br>
+			<p>When I'm building a class, I'm usually not interested in starting with variables that are globally big or locally small. I want the sweet spot, something that I can work with anywhere in the class (be that in general, in a method, or in a block or loop contained within that method) without being able to affect it when I'm not working within that class. To work with an object like this, I can initialize the class with instance variables. Allow me to illustrate by making a class whose instances represent different sandwiches:</p><br>
+			<img src="http://i.imgur.com/ugCWm4B.png" /><br><br>
+			<p>This looks a little redundant at first, but what just happened is absolutely crucial to Sandwich working as a functional class later on. In the initialize method, we define the arguments that the class can take. We want each Sandwich to have meat, cheese and bread values stored. But what good is storing them if we can't use them? By using the @ symbol in front of a variable, we create an instance variable that can be accessed from anywhere within a given sandwich. (They're called instance variables because each given sandwich is an <em>instance</em> of the Sandwich class.)</p><br>
+			<p>Since @meat, @cheese, and @bread can be accessed from anywhere within Sandwich, we can now create some more methods that use our instance variables:</p><br>
+			<img src="http://i.imgur.com/mmDL63e.png" /><br><br>
+			<p>Now we can see the magic of instance variables in action. Notice how the instance variables can show up in any method to be accessed and modified. This allows us to take the initial arguments, modify them with specific instructions, and return the results:</p><br>
+			<img src="http://i.imgur.com/RmXP0D7.png" /><br><br>
+			<p>We can do all of this without having to redefine @meat, @cheese, or @bread within each method. We did that at initialization and we don't need to do it again. It's that simple! One last warning, though: It's possible to set instance variables outside of a class, but they have nothing to do with the instance variables within the class. They don't speak to each other. Check out an example:</p><br>
+			<img src="http://i.imgur.com/lXMjDZ0.png" /><br><br>
+			<img src="http://i.imgur.com/JBef6FS.png" /><br><br>
+			<p>So it's still important to keep track of your variable usage and name things appropriately. Whatever the scope of the variable you use, there is a way to screw something up. To avoid this, comment your code as you go along, and don't use the wrong type of variable for a situation. (I had no business creating @bread outside of a class just now!) By building classes with instance variables, you can unleash all their power and create some truly functional code. Take a stab at it for yourself. Good luck, and happy coding!</p>
+		</section>
 	</div>
 </body>
 </html>
